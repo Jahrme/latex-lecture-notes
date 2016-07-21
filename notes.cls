@@ -10,36 +10,36 @@
   \newdateformat{usvardate}{\monthname[\THEMONTH] \ordinal{DAY}, \THEYEAR}
   \usvardate
   \newcommand{\notes@lecturename}{Lecture}
-  \newcommand{\notes@theoremname}{theorem}
-  \newcommand{\notes@propositionname}{proposition}
-  \newcommand{\notes@lemmaname}{lemma}
-  \newcommand{\notes@corollaryname}{corollary}
-  \newcommand{\notes@definitionname}{definition}
-  \newcommand{\notes@examplename}{example}
-  \newcommand{\notes@exercisename}{exercise}
-  \newcommand{\notes@remarkname}{remark}
-  \newcommand{\notes@factname}{fact}
-  \newcommand{\notes@problemname}{problem}
-  \newcommand{\notes@conjecturename}{conjecture}
-  \newcommand{\notes@claimname}{claim}
-  \newcommand{\notes@notationname}{notation}}
+  \newcommand{\notes@theoremname}{Theorem}
+  \newcommand{\notes@propositionname}{Proposition}
+  \newcommand{\notes@lemmaname}{Lemma}
+  \newcommand{\notes@corollaryname}{Corollary}
+  \newcommand{\notes@definitionname}{Definition}
+  \newcommand{\notes@examplename}{Example}
+  \newcommand{\notes@exercisename}{Exercise}
+  \newcommand{\notes@remarkname}{Remark}
+  \newcommand{\notes@factname}{Fact}
+  \newcommand{\notes@problemname}{Problem}
+  \newcommand{\notes@conjecturename}{Conjecture}
+  \newcommand{\notes@claimname}{Claim}
+  \newcommand{\notes@notationname}{Notation}}
 \DeclareOption{italian}{
   \newcommand{\notes@lang}{italian}
   \dateitalian
   \newcommand{\notes@lecturename}{Lezione}
-  \newcommand{\notes@theoremname}{teorema}
-  \newcommand{\notes@propositionname}{proposizione}
-  \newcommand{\notes@lemmaname}{lemma}
-  \newcommand{\notes@corollaryname}{corollario}
-  \newcommand{\notes@definitionname}{definizione}
-  \newcommand{\notes@examplename}{esempio}
-  \newcommand{\notes@exercisename}{esercizio}
-  \newcommand{\notes@remarkname}{osservazione}
-  \newcommand{\notes@factname}{fatto}
-  \newcommand{\notes@problemname}{problema}
-  \newcommand{\notes@conjecturename}{congettura}
-  \newcommand{\notes@claimname}{ipotesi}
-  \newcommand{\notes@notationname}{notazione}}
+  \newcommand{\notes@theoremname}{Teorema}
+  \newcommand{\notes@propositionname}{Proposizione}
+  \newcommand{\notes@lemmaname}{Lemma}
+  \newcommand{\notes@corollaryname}{Corollario}
+  \newcommand{\notes@definitionname}{Definizione}
+  \newcommand{\notes@examplename}{Esempio}
+  \newcommand{\notes@exercisename}{Esercizio}
+  \newcommand{\notes@remarkname}{Osservazione}
+  \newcommand{\notes@factname}{Fatto}
+  \newcommand{\notes@problemname}{Problema}
+  \newcommand{\notes@conjecturename}{Congettura}
+  \newcommand{\notes@claimname}{Ipotesi}
+  \newcommand{\notes@notationname}{Notazione}}
 % Header (headertitle,headersection,headersubsection, headerno)
 %   headertitle displays speaker on left and title on right.
 %   headersection displays section on left and right
