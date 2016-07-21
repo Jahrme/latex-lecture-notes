@@ -145,7 +145,7 @@
 \RequirePackage{booktabs}
 \RequirePackage{multirow}
 \RequirePackage[fixlanguage]{babelbib}
-\RequirePackage{Commons}
+\RequirePackage{notecommands}
 
 \delimitershortfall=5pt
 
