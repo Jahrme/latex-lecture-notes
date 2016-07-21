@@ -5,4 +5,4 @@ For Stefano Maggiolo's original work, see [here](http://blog.poormansmath.net/la
 
 These LaTeX style/class files provide a nice template for lecture notes.
 
-(*NB*: Currently the language (english or italian) and style (course, lecture, and talk) options are required to avoid errors.)
+(*NB*: Currently the language (`english` or `italian`) and style (`course`, `lecture`, and `talk`) options are required to avoid errors.)
