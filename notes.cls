@@ -1,70 +1,72 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{notes}
 \RequirePackage{ifthen}
-\RequirePackage[nodayofweek]{datetime}
+\RequirePackage[ddmmyyyy]{datetime}
+
+\newif\ifnotes@english
+\newif\ifnotes@course
 
 %%% Options
 % Language (english,italian)
 \DeclareOption{english}{
-  \newcommand{\notes@lang}{english}
-  \newdateformat{usvardate}{\monthname[\THEMONTH] \ordinal{DAY}, \THEYEAR}
-  \usvardate
-  \newcommand{\notes@lecturename}{Lecture}
-  \newcommand{\notes@theoremname}{Theorem}
-  \newcommand{\notes@propositionname}{Proposition}
-  \newcommand{\notes@lemmaname}{Lemma}
-  \newcommand{\notes@corollaryname}{Corollary}
-  \newcommand{\notes@definitionname}{Definition}
-  \newcommand{\notes@examplename}{Example}
-  \newcommand{\notes@exercisename}{Exercise}
-  \newcommand{\notes@remarkname}{Remark}
-  \newcommand{\notes@factname}{Fact}
-  \newcommand{\notes@problemname}{Problem}
-  \newcommand{\notes@conjecturename}{Conjecture}
-  \newcommand{\notes@claimname}{Claim}
-  \newcommand{\notes@notationname}{Notation}}
+  \providecommand{\notes@lang}{english}
+  \providecommand{\notes@lecturename}{Lecture}
+  \providecommand{\notes@theoremname}{Theorem}
+  \providecommand{\notes@propositionname}{Proposition}
+  \providecommand{\notes@lemmaname}{Lemma}
+  \providecommand{\notes@corollaryname}{Corollary}
+  \providecommand{\notes@definitionname}{Definition}
+  \providecommand{\notes@examplename}{Example}
+  \providecommand{\notes@exercisename}{Exercise}
+  \providecommand{\notes@remarkname}{Remark}
+  \providecommand{\notes@factname}{Fact}
+  \providecommand{\notes@problemname}{Problem}
+  \providecommand{\notes@conjecturename}{Conjecture}
+  \providecommand{\notes@claimname}{Claim}
+  \providecommand{\notes@notationname}{Notation}
+  \notes@englishtrue}
 \DeclareOption{italian}{
-  \newcommand{\notes@lang}{italian}
-  \dateitalian
-  \newcommand{\notes@lecturename}{Lezione}
-  \newcommand{\notes@theoremname}{Teorema}
-  \newcommand{\notes@propositionname}{Proposizione}
-  \newcommand{\notes@lemmaname}{Lemma}
-  \newcommand{\notes@corollaryname}{Corollario}
-  \newcommand{\notes@definitionname}{Definizione}
-  \newcommand{\notes@examplename}{Esempio}
-  \newcommand{\notes@exercisename}{Esercizio}
-  \newcommand{\notes@remarkname}{Osservazione}
-  \newcommand{\notes@factname}{Fatto}
-  \newcommand{\notes@problemname}{Problema}
-  \newcommand{\notes@conjecturename}{Congettura}
-  \newcommand{\notes@claimname}{Ipotesi}
-  \newcommand{\notes@notationname}{Notazione}}
+  \providecommand{\notes@lang}{italian}
+  \providecommand{\notes@lecturename}{Lezione}
+  \providecommand{\notes@theoremname}{Teorema}
+  \providecommand{\notes@propositionname}{Proposizione}
+  \providecommand{\notes@lemmaname}{Lemma}
+  \providecommand{\notes@corollaryname}{Corollario}
+  \providecommand{\notes@definitionname}{Definizione}
+  \providecommand{\notes@examplename}{Esempio}
+  \providecommand{\notes@exercisename}{Esercizio}
+  \providecommand{\notes@remarkname}{Osservazione}
+  \providecommand{\notes@factname}{Fatto}
+  \providecommand{\notes@problemname}{Problema}
+  \providecommand{\notes@conjecturename}{Congettura}
+  \providecommand{\notes@claimname}{Ipotesi}
+  \providecommand{\notes@notationname}{Notazione}
+  \notes@englishfalse}
 % Header (headertitle,headersection,headersubsection, headerno)
 %   headertitle displays speaker on left and title on right.
 %   headersection displays section on left and right
 %   headersubsection displays section on left and subsection on right
 %   headerno does not display headers
-\DeclareOption{headertitle}{\newcommand{\notes@header}{title}}
-\DeclareOption{headersection}{\newcommand{\notes@header}{section}}
-\DeclareOption{headersubsection}{\newcommand{\notes@header}{subsection}}
-\DeclareOption{headerno}{\newcommand{\notes@header}{no}}
+\DeclareOption{headertitle}{\providecommand{\notes@header}{title}}
+\DeclareOption{headersection}{\providecommand{\notes@header}{section}}
+\DeclareOption{headersubsection}{\providecommand{\notes@header}{subsection}}
+\DeclareOption{headerno}{\providecommand{\notes@header}{no}}
 % Theorem (theoremnosection,theoremsection,theoremsubsection)
 %   theoremnosection numbers theorem continuously in the document
 %   theoremsection reset theorem numbering on section changes
 %   theoremsubsection reset theorem numbering on subsection changes
-\DeclareOption{theoremnosection}{\newcommand{\notes@theorem}{nosection}}
-\DeclareOption{theoremsection}{\newcommand{\notes@theorem}{section}}
-\DeclareOption{theoremsubsection}{\newcommand{\notes@theorem}{subsection}}
+\DeclareOption{theoremnosection}{\providecommand{\notes@theorem}{nosection}}
+\DeclareOption{theoremsection}{\providecommand{\notes@theorem}{section}}
+\DeclareOption{theoremsubsection}{\providecommand{\notes@theorem}{subsection}}
 % Clear double page before sections (cleardoublepage,nocleardoublepage)
-\DeclareOption{cleardoublepage}{\newcommand{\notes@cleardoublepage}{true}}
-\DeclareOption{nocleardoublepage}{\newcommand{\notes@cleardoublepage}{false}}
+\DeclareOption{cleardoublepage}{\providecommand{\notes@cleardoublepage}{true}}
+\DeclareOption{nocleardoublepage}{\providecommand{\notes@cleardoublepage}{false}}
 % Number of sides (oneside,twoside)
-\DeclareOption{oneside}{\newcommand{\notes@side}{oneside}}
-\DeclareOption{twoside}{\newcommand{\notes@side}{twoside}}
+\DeclareOption{oneside}{\providecommand{\notes@side}{oneside}}
+\DeclareOption{twoside}{\providecommand{\notes@side}{twoside}}
 % Number of columns (onecolumn,twocolumn)
-\DeclareOption{onecolumn}{\newcommand{\notes@columns}{onecolumn}}
-\DeclareOption{twocolumn}{\newcommand{\notes@columns}{twocolumn}}
+\DeclareOption{onecolumn}{\providecommand{\notes@columns}{onecolumn}}
+\DeclareOption{twocolumn}{\providecommand{\notes@columns}{twocolumn}}
 % Type (course, seminar, talk)
 %   Course is a medium-length document (tens of pages)
 %     structured in sections, subsections and optionally paragraphs;
@@ -77,7 +79,8 @@
 %   Talk is to prepare a speech - with the same structure as seminar, but is
 %     designed to write only the things one will write at the blackboard.
 \DeclareOption{course}{%
-  \newcommand{\notes@type}{course}%
+  \notes@coursetrue
+  \providecommand{\notes@type}{course}%
   \ifthenelse{\isundefined{\notes@header}}{\ExecuteOptions{headersubsection}}{}%
   \ifthenelse{\isundefined{\notes@theorem}}{\ExecuteOptions{theoremsection}}{}%
   \ifthenelse{\isundefined{\notes@cleardoublepage}}{\ExecuteOptions{nocleardoublepage}}{}%
@@ -86,7 +89,8 @@
   \PassOptionsToPackage{fleqn}{amsmath}%
 }
 \DeclareOption{seminar}{%
-  \newcommand{\notes@type}{seminar}%
+  \notes@coursefalse
+  \providecommand{\notes@type}{seminar}%
   \ifthenelse{\isundefined{\notes@header}}{\ExecuteOptions{headertitle}}{}%
   \ifthenelse{\isundefined{\notes@theorem}}{\ExecuteOptions{theoremnosection}}{}%
   \ifthenelse{\isundefined{\notes@cleardoublepage}}{\ExecuteOptions{nocleardoublepage}}{}%
@@ -95,7 +99,8 @@
   \PassOptionsToPackage{fleqn}{amsmath}%
 }
 \DeclareOption{talk}{%
-  \newcommand{\notes@type}{talk}%
+  \notes@coursefalse
+  \providecommand{\notes@type}{talk}%
   \ifthenelse{\isundefined{\notes@header}}{\ExecuteOptions{headerno}}{}%
   \ifthenelse{\isundefined{\notes@theorem}}{\ExecuteOptions{theoremnosection}}{}%
   \ifthenelse{\isundefined{\notes@cleardoublepage}}{\ExecuteOptions{nocleardoublepage}}{}
@@ -106,14 +111,14 @@
   \tolerance=10000%
 }
 
-\ProcessOptions
+%%% Load default arguments if empty
+\ExecuteOptions{english}
+\ExecuteOptions{course}
+
+\ProcessOptions\relax
 
 %%% Load default class
 \LoadClass[a4paper,10pt,\notes@columns,\notes@side]{article}
-
-%%% Load default arguments if empty
-\ifthenelse{\isundefined{\notes@type}}{\ExecuteOptions{course}}{}
-\ifthenelse{\isundefined{\notes@lang}}{\ExecuteOptions{english}}{}
 
 %%% Common macroes
 \RequirePackage[\notes@lang]{babel}
@@ -194,7 +199,7 @@
 \newtheorem{problem}[theorem]{\notes@problemname}
 \newtheorem{notation}[theorem]{\notes@notationname}
 
-\newcommand{\notes@opensection}{}
+\providecommand{\notes@opensection}{}
 \ifthenelse{\equal{\notes@cleardoublepage}{true}}{\renewcommand{\notes@opensection}{\cleardoublepage\thispagestyle{plain}}}{}
 \titleformat{\subsection}{\relax\centering}{\thesubsection}{1em}{\normalsize\itshape}
 \titleformat{\paragraph}[runin]{}{}{}{\normalsize\smallcaps}
@@ -216,13 +221,13 @@
 
 %%% Preamble commands (as title, author, ...)
 \renewcommand{\date}[3]{\newdate{@date}{#1}{#2}{#3}}
-\newcommand{\dateend}[3]{\newcommand{\notes@dateenddef}{}\newdate{@dateend}{#1}{#2}{#3}}
-\newcommand{\email}[1]{\newcommand{\notes@email}{#1}}
-\newcommand{\speaker}[1]{\newcommand{\notes@speaker}{#1}}
-\newcommand{\smalltitle}[1]{\newcommand{\notes@smalltitle}{#1}}
-\newcommand{\place}[1]{\newcommand{\notes@place}{#1}}
-\newcommand{\conference}[1]{\newcommand{\notes@conference}{#1}}
-\newcommand{\subject}[1]{\newcommand{\notes@subject}{#1}}
+\newcommand{\dateend}[3]{\providecommand{\notes@dateenddef}{}\newdate{@dateend}{#1}{#2}{#3}}
+\newcommand{\email}[1]{\providecommand{\notes@email}{#1}}
+\newcommand{\speaker}[1]{\providecommand{\notes@speaker}{#1}}
+\newcommand{\smalltitle}[1]{\providecommand{\notes@smalltitle}{#1}}
+\newcommand{\place}[1]{\providecommand{\notes@place}{#1}}
+\newcommand{\conference}[1]{\providecommand{\notes@conference}{#1}}
+\newcommand{\subject}[1]{\providecommand{\notes@subject}{#1}}
 
 \AtBeginDocument{
   \ifthenelse{\equal{\notes@columns}{twocolumn}}
