@@ -129,7 +129,8 @@
 \usetikzlibrary{patterns}
 \usetikzlibrary{shapes}
 \RequirePackage[intlimits,leqno]{amsmath}
-\usepackage{eulervm,tgpagella}
+\RequirePackage{eulervm,tgpagella}
+\RequirePackage[scaled]{inconsolata}
 \RequirePackage{amsfonts}
 \RequirePackage{amsthm}
 \RequirePackage{amsxtra}
