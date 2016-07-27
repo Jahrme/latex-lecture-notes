@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Copyright (C) 2016 Jahrme Risner.                           %
+% Permission is granted to copy, distribute and/or modify     %
+% this document under the terms of the GNU Free Documentation %
+% License, Version 1.3 or any later version published by the  %
+% Free Software Foundation; with no Invariant Sections, no    %
+% Front-Cover Texts, and no Back-Cover Texts. A copy of the   %
+% license is included in the section entitled                 %
+% "GNU Free Documentation License".                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[english,course,twocolumn]{notes}
+
+\title{\texttt{notes} Documentation}
+\author{Jahrme Risner}
+\date{07}{22}{2016}
+
+\begin{document}\clearpage
+
+\section{Introduction}
+The \verb|notes| document class is designed for taking notes.
+These notes can be taken as either as a student organizing their course notes,
+or by instructors to organize their lecture notes.
+
+\begin{quote}
+``Two words on what you get with this class file:
+the main difference is the font (Palatino instead of Computer Modern);
+the second main difference is the use of small-caps instead of boldface.
+I have to say I needed these modifications because I was very tired of the standard, omnipresent \LaTeX\ style.
+Other small notable differences are the centered titles--because I'm not writing a book--
+and the theorem numbers placed before the word ``theorem''--to make easier searching for them.''
+\\
+---Stefano Maggiolo
+\end{quote}
+
+\section{Class Options}
+
+The following options are available to customize the document class:
+\begin{itemize}
+\item Language:
+    \begin{itemize}
+    \item \verb|english| (default)
+    \item \verb|italian|
+    \end{itemize}
+\item Structure:
+    \begin{itemize}
+    \item \verb|course|, a medium-length document structures with sections, subsections, and paragraphs (default)
+    \item \verb|seminar|, a short document without structure
+    \item \verb|talk|, the paper used while delivering a seminar
+    \end{itemize}
+\item Header Information:
+    \begin{itemize}
+    \item \verb|headertitle|
+    \item \verb|headersection|
+    \item \verb|headersubsection|
+    \item \verb|headerno|
+    \end{itemize}
+\item Theorem Numbering:
+    \begin{itemize}
+    \item \verb|theoremsection|
+    \item \verb|theoremsubsection|
+    \item \verb|theoremnosection|
+    \end{itemize}
+\item Page Layout:
+    \begin{itemize}
+    \item \verb|onecolumn|, one column per page
+    \item \verb|twocolumn|, two columns per page
+    \item \verb|oneside|, margins and headers optimized for one-sided printing
+    \item \verb|twoside|, margins and headers optimized for two-sided printing
+    \item \verb|cleardoublepage|, sections begin on next \emph{verso} (right-hand) page
+    \item \verb|nocleardoublepage|, sections continue where previous ended
+    \end{itemize}
+\end{itemize}
+
+\section{Document Preamble}
+
+The following fields are available to set document information:
+\begin{itemize}
+\item \verb|\title{TITLE}| (required)
+\item \verb|\subject{SUBJECT}|
+\item \verb|\speaker{SPEAKER}|
+\item \verb|\place{PLACE}|
+\item \verb|\author{AUTHOR}| (required)
+\item \verb|\email{EMAIL@PLACE.COM}|
+\item \verb|\date{DD}{MM}{YYYY}| (required)
+\item \verb|\dateend{DD}{MM}{YYYY}|
+\end{itemize}
+Please note, the \verb|author| and \verb|email| refer to the name and email of the note taker.
+
+\section{Recommended and Required Packages}
+
+The following packackages are either required or highly recommended when using this document class:
+\begin{itemize}
+\item \verb|hyperref|, automates the creation of links in various locations and enables tweaking the PDF metadata.
+\item \verb|mathtools|, enhancements to the standard AMS-\LaTeX\ packages; the documentation is an inspiring source of tips for beautiful typesetting.
+\item \verb|booktabs|, standard \LaTeX\ tables look poorer than they should; learn why by reading booktabs' documentation.
+\item \verb|multirow|, allow tables with cells spanning multiple rows.
+\item \verb|fancyhdr|, allows customization of the headers and footers.
+\item \verb|mparhack|, workaround for a bug in \LaTeX's \verb|\marginpar|.
+\item \verb|tikz|, a high-level drawing language.
+\item \verb|mathdots| redefines \verb|\dots| and its friends so that they change size when appropriate.
+\item \verb|xfrac|, typesets nice inline fractions, as in \sfrac{1}{2}.
+\item \verb|faktor|, same as \verb|xfrac|, but without shrinking the denominator's and numerator's size; useful for quotients.
+\item \verb|cancel|, to draw diagonal bars through terms in an equation.
+\end{itemize}
+
+\section{New Commands}
+
+Depending on the document style, we define several new commands.
+For a \verb|course|, \verb|\lecture[duration]{dd}{mm}{yyyy}| writes the lecture information in the margin.
+For a \verb|talk|, \verb|\separator| draws a horizontal line and \verb|\tosay{message}| prints \verb|message| inside a box as a reminder.
+In all styles, \verb|\mymarginpar{message}| behaves like a regular \verb|marginpar|, but with a custom style.
+
+\section{Licence}
+
+\begin{quote}
+``Please note that my class is not licensed in any way.
+If you want to use it, you're free to do anything you want with them.
+Anyway, I will be happy if you just drop me a line telling me you're using it.''
+\\
+---Stefano Maggiolo
+\end{quote}
+
+For my adaptation of Stefano Maggiolo's class I will be using a licence, but it will be an ``open'' licence in keeping with his original intentions.
+
+\begin{quote}
+Copyright \copyright\ 2016 Jahrme Risner.\\
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License".
+\end{quote}
+
+\end{document}
