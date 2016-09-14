@@ -129,7 +129,9 @@
 \usetikzlibrary{patterns}
 \usetikzlibrary{shapes}
 \RequirePackage[intlimits,leqno]{amsmath}
-\RequirePackage{eulervm,tgpagella}
+\RequirePackage{mathpazo}
+\RequirePackage{tgpagella}
+\RequirePackage{eulervm}
 \RequirePackage[scaled]{inconsolata}
 \RequirePackage{amsfonts}
 \RequirePackage{amsthm}
@@ -174,6 +176,17 @@
 }
 \newcommand{\TODO}{\mymarginpar{TODO}}%
 
+%%% Add double rule to left of theorems, definitions, etc.
+\newcommand{\blockLeftLine}[1]{
+    \surroundwithmdframed[
+        outerlinewidth=0.4pt,
+        innerlinewidth=0.4pt,
+        middlelinewidth=1pt,
+        middlelinecolor=white,
+        bottomline=false,topline=false,rightline=false
+    ]{#1}
+}
+
 %%% Theorems and sections style
 \swapnumbers
 \newtheoremstyle{plainsc}{10pt}{10pt}{\normalfont\itshape}{}{\normalfont\smallcaps}{.}{.5em}{}
@@ -198,6 +211,21 @@
 \newtheorem{fact}[theorem]{\notes@factname}
 \newtheorem{problem}[theorem]{\notes@problemname}
 \newtheorem{notation}[theorem]{\notes@notationname}
+
+\blockLeftLine{theorem}
+\blockLeftLine{proposition}
+\blockLeftLine{lemma}
+\blockLeftLine{corollary}
+\blockLeftLine{conjecture}
+\blockLeftLine{claim}
+\blockLeftLine{definition}
+\blockLeftLine{example}
+\blockLeftLine{exercise}
+\blockLeftLine{remark}
+\blockLeftLine{fact}
+\blockLeftLine{problem}
+\blockLeftLine{notation}
+
 
 \providecommand{\notes@opensection}{}
 \ifthenelse{\equal{\notes@cleardoublepage}{true}}{\renewcommand{\notes@opensection}{\cleardoublepage\thispagestyle{plain}}}{}
